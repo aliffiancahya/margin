@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #f8f7f2;
+  color: #202520;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: #f6d8c4;
+  color: #202520;
+}
+:focus-visible {
+  outline: 3px solid #c45031;
+  outline-offset: 4px;
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply text-[11px] font-bold uppercase tracking-[0.22em] text-accent;
+  }
+  .section-title {
+    @apply font-display text-[clamp(2.3rem,4.4vw,4.4rem)] leading-[1.09] tracking-[-0.045em];
+  }
+  .button-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-forest focus-visible:outline-offset-4;
+  }
+  .button-outline {
+    @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-ink px-6 py-3 text-sm font-bold text-ink transition duration-200 hover:-translate-y-0.5 hover:bg-ink hover:text-white;
+  }
+  .text-link {
+    @apply inline-flex items-center gap-2 border-b border-current pb-1 text-sm font-bold transition-colors hover:text-accent;
+  }
+  .pill {
+    @apply inline-flex items-center rounded-full border border-line bg-white/60 px-3 py-1.5 text-xs font-semibold text-muted;
+  }
+  .input-field {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3.5 text-base text-ink outline-none transition-colors placeholder:text-muted/70 focus:border-accent focus:ring-2 focus:ring-accent/20;
+  }
+  .article-prose {
+    @apply prose prose-lg prose-stone max-w-none;
+  }
+  .article-prose h2 {
+    @apply mb-5 mt-12 font-display text-3xl font-normal tracking-tight;
+  }
+  .article-prose h3 {
+    @apply font-display font-normal tracking-tight;
+  }
+  .article-prose p {
+    line-height: 1.9;
+  }
+  .article-prose a {
+    @apply text-accent;
+  }
+  .article-prose strong {
+    @apply text-ink;
+  }
+  .article-prose pre {
+    @apply rounded-2xl bg-ink;
+  }
+  .article-prose blockquote {
+    @apply border-accent font-display text-2xl font-normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
